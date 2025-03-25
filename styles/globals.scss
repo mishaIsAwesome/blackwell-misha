@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+  @font-face {
+    font-family: "ATRotisSemiSans-ExtraBold";
+    src: url(/fonts/ATRotisSemiSans-ExtraBold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "ATRotisSemiSans-Light";
+  src: url(/fonts/ATRotisSemiSans-Light.woff) format("woff");
+}
+
+
+// Define global color variables
+:root {
+  --background: #3A53BA;
+  --foreground: #ffffff;
+  --dark-blue: #040dbf;
+  --light-blue: #01f2f2;
+  --gold: #f2df79;
+  --orange: #F37406;
+}
+
+// Define font variables
+:root {
+  --font-primary: "ATRotisSemiSans-ExtraBold", sans-serif;
+  --font-secondary: "ATRotisSemiSans-Light", sans-serif;
+}
+
+// Dark mode styles
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+// Apply global styles
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-secondary);
+  margin: 0;
+  padding: 0;
+}
+
+// Example SCSS variable usage
+ $dark-blue: #040dbf;
+ $light-blue: #01f2f2;
+ $gold: #f2df79;
+ $orange: #F37406;
+
+h1 {
+  @apply text-8xl;
+  font-family: var(--font-primary);
+  color: $light-blue;
+}
+
+h2 {
+  @apply text-6xl;
+}
+
+h3 {
+  @apply text-4xl;
+  font-family: var(--font-primary);
+}
+
+h4 {
+  @apply text-2xl;
+  font-family: var(--font-primary);
+}
+
+@layer components {
+  .guide-tab {
+    @apply bg-(--background) text-white flex-1 flex gap-20 block py-2 px-4 rounded-lg border-1 transition-all duration-300 place-items-center font-(family-name:--font-primary) text-lg
+  }
+
+  .guide-tab-clicked {
+    @apply scale-x-106 border-r-0 rounded-r-none
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+}
